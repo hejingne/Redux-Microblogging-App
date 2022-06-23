@@ -1,15 +1,14 @@
 # Introduction
-This is a microblogging and social networking app for sharing recipes. Users can view a list of recipes as posts, or upload, modify or delete posts on the platform. \
-GET and POST requests are sent via AJAX requests. A RESTful API is constructed to enable data fetching from the designated endpoints.\  
-
+This is a microblogging and social networking app. Users can view a list of blog entries, or upload, modify and delete blogs on the platform.\
+GET and POST requests are sent via AJAX requests. A RESTful API is constructed to enable data fetching from the designated endpoints.\
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm install` followed by `export NODE_OPTIONS=--openssl-legacy-provider`
-Install dependencies in your local machine
+### `npm install` and `export NODE_OPTIONS=--openssl-legacy-provider`
+Install dependencies in local machine
 
 ### `npm start`
 

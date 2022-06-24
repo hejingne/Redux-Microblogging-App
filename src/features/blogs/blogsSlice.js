@@ -7,22 +7,25 @@ const blogsSlice = createSlice(
       {
         id: '1',
         title: 'Redux Overview and Concepts',
-        content: 'Learn key Redux terms'
+        content: 'Learn key Redux terms',
+        userId: '0'
       },
       {
         id: '2',
         title: 'Redux Essentials: Basic Redux Data Flow',
-        content: 'Learn how to add "slices" of reducer logic to Redux store'
+        content: 'Learn how to add "slices" of reducer logic to Redux store',
+        userId: '1'
       }
     ],
     reducers: {
       addBlog: {
-        prepare: (title, content) => {  // the 'prepare callback' functionality of createSlice()
+        prepare: (title, content, userId) => {  // the 'prepare callback' functionality of createSlice()
           return {  // returns an object with the payload field
             payload: {
                 id: nanoid(),
                 title: title,
-                content: content
+                content: content,
+                userId: userId
             }
           }
         },

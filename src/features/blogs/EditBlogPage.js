@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import { editBlog } from './blogsSlice'
+import { BlogsAuthor } from './BlogsAuthor'
 
 export function EditBlogPage({ match }) {
   const { blogId } = match.params
   const foundBlog = useSelector(state =>
                                   state.blogs.find(blog =>
                                       blog.id === blogId))
+
   const [title, setTitle] = useState(foundBlog.title)
   const [content, setContent] = useState(foundBlog.content)
 
@@ -31,6 +33,7 @@ export function EditBlogPage({ match }) {
   return (
     <section>
       <h2> Edit Blog </h2>
+      <BlogsAuthor userId={foundBlog.userId}/>
       <form>
       <label htmlFor="blogTitle"> Blog Title: </label>
       <input type="text"

@@ -9,6 +9,7 @@ import {
 import { Navbar } from './app/Navbar'
 import { BlogsList } from './features/blogs/BlogsList'
 import { Form } from './features/blogs/Form'
+import { SingleBlogPage } from './features/blogs/SingleBlogPage'
 
 function App() {
   return (
@@ -24,8 +25,12 @@ function App() {
                 <Form />
                 <BlogsList />
               </React.Fragment>
-            )}
-          />
+            )} />
+
+          <Route
+            exact path="/blogs/:blogId"
+            component={SingleBlogPage} />
+
           <Redirect to="/" />
         </Switch>
       </div>

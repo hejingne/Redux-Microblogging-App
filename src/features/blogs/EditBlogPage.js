@@ -22,15 +22,7 @@ export function EditBlogPage({ match }) {
     } else if (content === '') {
       alert("Please add content")
     } else {
-      dispatch(
-        editBlog( {
-            id: blogId,
-            title,
-            content
-          }
-        )
-      )
-
+      dispatch(editBlog(blogId, title, content))
       // Switch over to the single blog page to show the updated blog alone
       history.push(`/blogs/${blogId}`)
     }

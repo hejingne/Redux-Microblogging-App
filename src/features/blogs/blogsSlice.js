@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from '@reduxjs/toolkit'
 
 const blogsSlice = createSlice(
   {
@@ -16,15 +16,37 @@ const blogsSlice = createSlice(
       }
     ],
     reducers: {
-      addBlog: (state, action) => {
-        state.push(action.payload)
+      addBlog: {
+        prepare: (title, content) => {  // the 'prepare callback' functionality of createSlice()
+          return {  // returns an object with the payload field
+            payload: {
+                id: nanoid(),
+                title: title,
+                content: content
+            }
+          }
+        },
+        reducer: (state, action) => {
+          state.push(action.payload)
+        }
       },
-      editBlog: (state, action) => {
-        const { id, title, content } = action.payload
-        const foundBlog = state.find(blog => blog.id === id)
-        if (foundBlog) {
-          foundBlog.title = title
-          foundBlog.content = content
+      editBlog: {
+        prepare: (id, title, content) => {
+          return {
+            payload: {
+              id: id,
+              title: title,
+              content: content
+            }
+          }
+        },
+        reducer: (state, action) => {
+          const { id, title, content } = action.payload
+          const foundBlog = state.find(blog => blog.id === id)
+          if (foundBlog) {
+            foundBlog.title = title
+            foundBlog.content = content
+          }
         }
       }
     }

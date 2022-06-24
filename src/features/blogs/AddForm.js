@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { nanoid } from '@reduxjs/toolkit'
 
 import { addBlog } from './blogsSlice'
 
@@ -17,15 +16,7 @@ export function AddForm() {
     } else if (content === '') {
       alert("Please add content")
     } else {
-      dispatch(
-        addBlog( {
-            id: nanoid(),
-            title,
-            content
-          }
-        )
-      )
-
+      dispatch(addBlog(title, content))
       setTitle('')
       setContent('')
     }

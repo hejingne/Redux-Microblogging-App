@@ -7,8 +7,9 @@ import { BlogsTimeStamp } from './BlogsTimeStamp'
 
 export function BlogsList() {
   const blogs = useSelector(state => state.blogs)
+  const sortedBlogs = blogs.slice().reverse() // Sort blogs by uploaded time
 
-  const blogsList = blogs.map(blog => (
+  const blogsList = sortedBlogs.map(blog => (
     <article className="blog-excerpt"
              key={blog.id}>
 

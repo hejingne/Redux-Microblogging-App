@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 
-import { addPost } from './blogsSlice'
+import { addBlog } from './blogsSlice'
 
-export function Form() {
+export function AddForm() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
@@ -18,7 +18,7 @@ export function Form() {
       alert("Please add content")
     } else {
       dispatch(
-        addPost( {
+        addBlog( {
             id: nanoid(),
             title,
             content

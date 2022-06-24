@@ -1,20 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export function SingleBlogPage({ match }) {
   const { blogId } = match.params
-
-  const matchedBlog = useSelector( state => state.blogs.find(blog => blog.id === Number(blogId)) )
+  const foundBlog = useSelector( state => state.blogs.find(blog => blog.id === blogId) )
 
   return (
     <section>
       <article className="blog">
         <h2>
-            {matchedBlog ? `${matchedBlog.title}` : `Blog Not Found!`}
+            {foundBlog ? `${foundBlog.title}` : `Blog Not Found!`}
         </h2>
         <p className="blog-content">
-            {matchedBlog ? `${matchedBlog.content}` : ``}
+            {foundBlog ? `${foundBlog.content}` : ``}
         </p>
+        <Link to={`/editBlog/${foundBlog.id}`} className="button">
+           Edit Blog
+        </Link>
       </article>
     </section>
   )

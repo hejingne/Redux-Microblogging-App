@@ -14,9 +14,11 @@ export function BlogsList() {
       <p className="blog-content">
         {blog.content}
       </p>
-      <Link to={`/blogs/${blog.id}`}
-            className="button muted-button">
+      <Link to={`/blogs/${blog.id}`} className="button muted-button">
          View Blog
+      </Link>
+      <Link to={`/editBlog/${blog.id}`} className="button muted-button">
+         Edit Blog
       </Link>
     </article>
   ))

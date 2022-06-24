@@ -8,8 +8,9 @@ import {
 
 import { Navbar } from './app/Navbar'
 import { BlogsList } from './features/blogs/BlogsList'
-import { Form } from './features/blogs/Form'
+import { AddForm } from './features/blogs/AddForm'
 import { SingleBlogPage } from './features/blogs/SingleBlogPage'
+import { EditBlogPage } from './features/blogs/EditBlogPage'
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             path="/"
             render={() => (
               <React.Fragment>
-                <Form />
+                <AddForm />
                 <BlogsList />
               </React.Fragment>
             )} />
@@ -30,6 +31,10 @@ function App() {
           <Route
             exact path="/blogs/:blogId"
             component={SingleBlogPage} />
+
+          <Route
+            exact path="/editBlog/:blogId"
+            component={EditBlogPage} />
 
           <Redirect to="/" />
         </Switch>

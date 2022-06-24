@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { BlogsAuthor } from './BlogsAuthor'
+import { BlogsTimeStamp } from './BlogsTimeStamp'
 
 export function BlogsList() {
   const blogs = useSelector(state => state.blogs)
@@ -12,9 +13,8 @@ export function BlogsList() {
              key={blog.id}>
 
       <h3> {blog.title} </h3>
-
       <BlogsAuthor userId={blog.userId}/>
-
+      <BlogsTimeStamp timestamp={blog.date}/>
       <p className="blog-content"> {blog.content} </p>
 
       <Link to={`/blogs/${blog.id}`} className="button muted-button">

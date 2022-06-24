@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import { editBlog } from './blogsSlice'
 import { BlogsAuthor } from './BlogsAuthor'
+import { BlogsTimeStamp } from './BlogsTimeStamp'
 
 export function EditBlogPage({ match }) {
   const { blogId } = match.params
@@ -34,6 +35,8 @@ export function EditBlogPage({ match }) {
     <section>
       <h2> Edit Blog </h2>
       <BlogsAuthor userId={foundBlog.userId}/>
+      <BlogsTimeStamp timestamp={foundBlog.date}/>
+
       <form>
       <label htmlFor="blogTitle"> Blog Title: </label>
       <input type="text"

@@ -2,13 +2,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { selectBlogById } from './blogsSlice'
 import { BlogsAuthor } from './BlogsAuthor'
 import { BlogsTimeStamp } from './BlogsTimeStamp'
 import { BlogsReactionBtn } from './BlogsReactionBtn'
 
 export function SingleBlogPage({ match }) {
   const { blogId } = match.params
-  const foundBlog = useSelector( state => state.blogs.find(blog => blog.id === blogId) )
+  const foundBlog = useSelector(selectBlogById)
 
   return (
     <section>

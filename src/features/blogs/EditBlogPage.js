@@ -2,15 +2,13 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { editBlog } from './blogsSlice'
+import { editBlog, selectBlogById } from './blogsSlice'
 import { BlogsAuthor } from './BlogsAuthor'
 import { BlogsTimeStamp } from './BlogsTimeStamp'
 
 export function EditBlogPage({ match }) {
   const { blogId } = match.params
-  const foundBlog = useSelector(state =>
-                                  state.blogs.find(blog =>
-                                      blog.id === blogId))
+  const foundBlog = useSelector(selectBlogById)
 
   const [title, setTitle] = useState(foundBlog.title)
   const [content, setContent] = useState(foundBlog.content)

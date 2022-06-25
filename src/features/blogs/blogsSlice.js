@@ -100,3 +100,6 @@ const blogsSlice = createSlice(
 
 export const { addBlog, editBlog, reactToBlog } = blogsSlice.actions
 export default blogsSlice.reducer
+
+export const selectAllBlogs = state => state.blogs
+export const selectBlogById = (state, id) => state.blogs.find(blog => blog.id === id)

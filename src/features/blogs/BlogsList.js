@@ -2,12 +2,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { selectAllBlogs } from './blogsSlice'
 import { BlogsAuthor } from './BlogsAuthor'
 import { BlogsTimeStamp } from './BlogsTimeStamp'
 import { BlogsReactionBtn } from './BlogsReactionBtn'
 
 export function BlogsList() {
-  const blogs = useSelector(state => state.blogs)
+  const blogs = useSelector(selectAllBlogs)
   const sortedBlogs = blogs.slice().reverse() // Sort blogs by uploaded time
 
   const blogsList = sortedBlogs.map(blog => (

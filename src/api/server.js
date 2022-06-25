@@ -130,11 +130,11 @@ const serializePost = (post) => ({
 /* MSW REST API Handlers */
 
 export const handlers = [
-  rest.get('/fakeApi/posts', function (req, res, ctx) {
+  rest.get('/fakeApi/blogs', function (req, res, ctx) {
     const posts = db.post.getAll().map(serializePost)
     return res(ctx.delay(ARTIFICIAL_DELAY_MS), ctx.json(posts))
   }),
-  rest.post('/fakeApi/posts', function (req, res, ctx) {
+  rest.post('/fakeApi/blogs', function (req, res, ctx) {
     const data = req.body
 
     if (data.content === 'error') {
@@ -154,16 +154,16 @@ export const handlers = [
     const post = db.post.create(data)
     return res(ctx.delay(ARTIFICIAL_DELAY_MS), ctx.json(serializePost(post)))
   }),
-  rest.get('/fakeApi/posts/:postId', function (req, res, ctx) {
+  rest.get('/fakeApi/blogs/:blogId', function (req, res, ctx) {
     const post = db.post.findFirst({
-      where: { id: { equals: req.params.postId } },
+      where: { id: { equals: req.params.blogId } },
     })
     return res(ctx.delay(ARTIFICIAL_DELAY_MS), ctx.json(serializePost(post)))
   }),
-  rest.patch('/fakeApi/posts/:postId', (req, res, ctx) => {
+  rest.patch('/fakeApi/blogs/:blogId', (req, res, ctx) => {
     const { id, ...data } = req.body
     const updatedPost = db.post.update({
-      where: { id: { equals: req.params.postId } },
+      where: { id: { equals: req.params.blogId } },
       data,
     })
     return res(
@@ -172,9 +172,9 @@ export const handlers = [
     )
   }),
 
-  rest.get('/fakeApi/posts/:postId/comments', (req, res, ctx) => {
+  rest.get('/fakeApi/blogs/:blogId/comments', (req, res, ctx) => {
     const post = db.post.findFirst({
-      where: { id: { equals: req.params.postId } },
+      where: { id: { equals: req.params.blogId } },
     })
     return res(
       ctx.delay(ARTIFICIAL_DELAY_MS),
@@ -182,15 +182,15 @@ export const handlers = [
     )
   }),
 
-  rest.post('/fakeApi/posts/:postId/reactions', (req, res, ctx) => {
-    const postId = req.params.postId
+  rest.post('/fakeApi/blogs/:blogId/reactions', (req, res, ctx) => {
+    const blogId = req.params.blogId
     const reaction = req.body.reaction
     const post = db.post.findFirst({
-      where: { id: { equals: postId } },
+      where: { id: { equals: blogId } },
     })
 
     const updatedPost = db.post.update({
-      where: { id: { equals: postId } },
+      where: { id: { equals: blogId } },
       data: {
         reactions: {
           ...post.reactions,

@@ -9,7 +9,7 @@ import { BlogsReactionBtn } from './BlogsReactionBtn'
 
 export function SingleBlogPage({ match }) {
   const { blogId } = match.params
-  const foundBlog = useSelector(selectBlogById)
+  const foundBlog = useSelector(state => selectBlogById(state, blogId))
 
   return (
     <section>

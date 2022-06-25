@@ -8,7 +8,7 @@ import { BlogsTimeStamp } from './BlogsTimeStamp'
 
 export function EditBlogPage({ match }) {
   const { blogId } = match.params
-  const foundBlog = useSelector(selectBlogById)
+  const foundBlog = useSelector(state => selectBlogById(state, blogId))
 
   const [title, setTitle] = useState(foundBlog.title)
   const [content, setContent] = useState(foundBlog.content)

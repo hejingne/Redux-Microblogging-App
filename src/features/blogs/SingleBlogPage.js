@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { BlogsAuthor } from './BlogsAuthor'
 import { BlogsTimeStamp } from './BlogsTimeStamp'
+import { BlogsReactionBtn } from './BlogsReactionBtn'
 
 export function SingleBlogPage({ match }) {
   const { blogId } = match.params
@@ -20,6 +21,7 @@ export function SingleBlogPage({ match }) {
         <p className="blog-content">
             {foundBlog ? `${foundBlog.content}` : ``}
         </p>
+        <BlogsReactionBtn blog={foundBlog} />
         <Link to={`/editBlog/${foundBlog.id}`} className="button">
            Edit Blog
         </Link>

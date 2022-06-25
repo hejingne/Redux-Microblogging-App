@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { BlogsAuthor } from './BlogsAuthor'
 import { BlogsTimeStamp } from './BlogsTimeStamp'
+import { BlogsReactionBtn } from './BlogsReactionBtn'
 
 export function BlogsList() {
   const blogs = useSelector(state => state.blogs)
@@ -15,8 +16,9 @@ export function BlogsList() {
 
       <h3> {blog.title} </h3>
       <BlogsAuthor userId={blog.userId}/>
-      <BlogsTimeStamp timestamp={blog.date}/>
+      <BlogsTimeStamp date={blog.date}/>
       <p className="blog-content"> {blog.content} </p>
+      <BlogsReactionBtn blog={blog} />
 
       <Link to={`/blogs/${blog.id}`} className="button muted-button">
          View Blog

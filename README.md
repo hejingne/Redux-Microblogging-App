@@ -1,6 +1,6 @@
 # Introduction
 This is a microblogging and social networking app. Users can view a list of blog entries, or upload, modify and delete blogs on the platform.\
-Each blog entries is displayed with the title, content, author name, and non-static creation time as a relative description in the format of 'xxx minutes ago'. Users can react to each blog by clicking on various reaction emojis and view the total number of reactions a blog has received.\
+Each blog entries is displayed with the title, content, author name, and non-static creation time as a relative description in the format of 'xxx minutes ago'. Users can react to each blog by clicking on various reaction emojis and view the total number of reactions a blog has received.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
